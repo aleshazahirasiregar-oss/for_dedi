@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prayer and Love for Papa</title>
+    <style>
+        body { background: #ffe4e6; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .heart { position: absolute; color: #e11d48; font-size: 24px; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(110vh); } }
+    </style>
+</head>
+<body>
+    <!-- Ganti URL di bawah dengan link file audio doa.mp3 milikmu -->
+    <audio id="prayerAudio" src="path_to_your_doa_audio.mp3"></audio>
+    
+    <h1 id="status">Sending Blessings to Papa...</h1>
+
+    <script>
+        const audio = document.getElementById('prayerAudio');
+        
+        // Memutar suara doa saat halaman dimuat
+        window.onload = () => {
+            audio.play().catch(e => console.log("User interaction required"));
+        };
+
+        [span_1](start_span)// Otomatis berhenti saat doa selesai (asumsi durasi 30 detik)[span_1](end_span)
+        audio.onended = () => {
+            document.getElementById('status').innerText = "May Allah grant your prayers! ❤️";
+        };
+
+        [span_2](start_span)// Fungsi Animasi Hujan Hati[span_2](end_span)
+        function createHeart() {
+            const h = document.createElement('div');
+            h.innerHTML = '❤️';
+            h.className = 'heart';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 5000);
+        }
+        setInterval(createHeart, 200);
+    </script>
+</body>
+</html>
